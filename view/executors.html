@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Executors</title>
+  </head>
+  <body>
+    <h1>Executors List</h1>
+
+    {% if executors.length > 0 %}
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>IP</th>
+          <th>CPU</th>
+          <th>Memory</th>
+          <th>Platform</th>
+          <th>Uptime</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for executor in executors %}
+        <tr>
+          <td>{{ executor.name }}</td>
+          <td>{{ executor.ip }}</td>
+          <td>{{ executor.cpu.length }} cores</td>
+          <td>
+            {{ (executor.freeMemory / (1024 * 1024)).toFixed(2) }} MB / {{
+            (executor.totalMemory / (1024 * 1024)).toFixed(2) }} MB
+          </td>
+          <td>{{ executor.platform }}</td>
+          <td>{{ executor.uptime }} seconds</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>No executors found.</p>
+    {% endif %}
+  </body>
+</html>

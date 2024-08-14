@@ -1,0 +1,7 @@
+{
+  "name": "playwright-rest-api",
+  "script": "NODE_ENV=production node ./bootstrap.js",
+  "args": [],
+  "exec_interpreter": "",
+  "exec_mode": "fork"
+}

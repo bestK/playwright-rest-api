@@ -1,0 +1,59 @@
+{
+  "name": "playwright-rest-api",
+  "version": "1.0.0",
+  "description": "通过 http api 调用 Playwright",
+  "private": true,
+  "dependencies": {
+    "@midwayjs/bootstrap": "^3.12.0",
+    "@midwayjs/bull": "^3.16.8",
+    "@midwayjs/core": "^3.12.0",
+    "@midwayjs/cron": "^3.16.5",
+    "@midwayjs/info": "^3.12.0",
+    "@midwayjs/koa": "^3.12.0",
+    "@midwayjs/logger": "^3.1.0",
+    "@midwayjs/redis": "^3.16.5",
+    "@midwayjs/static-file": "^3.4.12",
+    "@midwayjs/swagger": "^3.16.8",
+    "@midwayjs/task": "^2.14.6",
+    "@midwayjs/validate": "^3.12.0",
+    "@midwayjs/view-nunjucks": "^3.4.12",
+    "dotenv": "^16.4.5",
+    "node-fetch": "^3.3.2",
+    "playwright": "^1.45.3",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@midwayjs/mock": "^3.12.0",
+    "@playwright/test": "^1.45.3",
+    "@types/jest": "^29.2.0",
+    "@types/koa": "^2.13.4",
+    "@types/node": "14",
+    "cross-env": "^6.0.0",
+    "jest": "^29.2.2",
+    "mwts": "^1.3.0",
+    "mwtsc": "^1.4.0",
+    "swagger-ui-dist": "^5.17.14",
+    "ts-jest": "^29.0.3",
+    "typescript": "~4.8.0"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "scripts": {
+    "pm2": "pm2 start pm2_config.json",
+    "start": "NODE_ENV=production node ./bootstrap.js",
+    "dev": "cross-env NODE_ENV=local mwtsc --watch --run @midwayjs/mock/app.js",
+    "test": "cross-env NODE_ENV=unittest jest",
+    "cov": "jest --coverage",
+    "lint": "mwts check",
+    "lint:fix": "mwts fix",
+    "ci": "npm run cov",
+    "build": "mwtsc --cleanOutDir"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bestk/playwright-rest-api.git"
+  },
+  "author": "bestk",
+  "license": "GPL"
+}

@@ -1,0 +1,68 @@
+###
+POST  http://192.168.0.165:7001/api/v1/playwright/generate?traceId=123 HTTP/1.1
+content-type: application/json
+
+{
+    "title": "baidu",
+    "steps": [
+        {
+            "type": "setLaunchOptions",
+            "value": "{\"headless\": false,\"executablePath\":\"C:/Program Files/Google/Chrome/Application/chrome.exe\"}"
+        },
+        {
+            "type": "launch"
+        },
+        {
+            "type": "setViewport",
+            "width": 935,
+            "height": 989,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "navigate",
+            "url": "https://baidu.com"
+        },
+        {
+            "type": "sleep",
+            "value": "3000"
+        },
+        {
+            "type": "fill",
+            "value": "abc@example.com",
+            "selectors": [
+                [
+                    "#kw"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "sleep",
+            "value": "3000"
+        },
+        {
+            "type": "evaluate",
+            "value": "alert(\"hello world\")"
+        },
+        {
+            "type": "code",
+            "value": "await postJson(\"https://baidu.com\",{})",
+            "returnName": "baiduResponse"
+        },
+        {
+            "type": "pageClose"
+        },
+        {
+            "type": "browserClose"
+        }
+    ]
+}
+
+### 获取百度搜索网页标题
+POST http://192.168.0.165:7001/api/v1/playwright/run?scriptId=getBaiduTitle HTTP/1.1
+content-type: application/json
+
+{"keyword":"今天是什么日子"}
